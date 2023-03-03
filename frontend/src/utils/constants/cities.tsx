@@ -1,4 +1,4 @@
-const cities = ["adilabad", "nizamabad", "warangal", "karimnagar", "khammam"]
+const cities = ["adilabad", "nizamabad", "warangal", "karimnagar", "khamman"]
 
 export const cityData: {
   [key: string]: {
@@ -76,9 +76,9 @@ export const cityData: {
       ></iframe>
     ),
   },
-  khammam: {
+  khamman: {
     id: 4,
-    name: "khammam",
+    name: "khamman",
     lat: 17.247253,
     lon: 80.151443,
     iframe: (
