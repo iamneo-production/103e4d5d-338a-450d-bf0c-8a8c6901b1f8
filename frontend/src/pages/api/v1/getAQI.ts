@@ -38,17 +38,6 @@ const handler = (req: NextApiRequest, res: NextApiResponse<API>) => {
   }
 
   const data = dataMap[query]
-  console.log(data.data)
-  const average =
-    data.data.reduce(
-      (
-        accumulator: number,
-        current: { id: number; month: string; abbr: number; prediction: number; context: string }
-      ) => {
-        return current.prediction + accumulator
-      },
-      0
-    ) / data.data.length
 
   /* Generate a comment based on averge */
   const comment = "lorem ipsum"
@@ -56,7 +45,6 @@ const handler = (req: NextApiRequest, res: NextApiResponse<API>) => {
   return res.status(200).send({
     data: {
       distribution: data,
-      average: average,
       comment: comment,
     },
     error: null,
