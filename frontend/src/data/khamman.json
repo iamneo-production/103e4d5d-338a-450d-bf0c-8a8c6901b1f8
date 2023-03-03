@@ -1,0 +1,19 @@
+{
+    "city": "Khamman",
+    "lat": 17.2473,
+    "lon": 80.1514,
+    "data": [
+        { "id": 1, "month": "January", "abbr": 1, "prediction": 114, "context": "Moderate" },
+        { "id": 2, "month": "February", "abbr": 2, "prediction": 107, "context": "Moderate" },
+        { "id": 3, "month": "March", "abbr": 3, "prediction": 89, "context": "Satisfactory" },
+        { "id": 4, "month": "April", "abbr": 4, "prediction": 76, "context": "Satisfactory" },
+        { "id": 5, "month": "May", "abbr": 5, "prediction": 75, "context": "Satisfactory" },
+        { "id": 6, "month": "June", "abbr": 6, "prediction": 79, "context": "Satisfactory" },
+        { "id": 7, "month": "July", "abbr": 7, "prediction": 79, "context": "Satisfactory" },
+        { "id": 8, "month": "August", "abbr": 8, "prediction": 78, "context": "Satisfactory" },
+        { "id": 9, "month": "September", "abbr": 9, "prediction": 79, "context": "Satisfactory" },
+        { "id": 10, "month": "October", "abbr": 10, "prediction": 83, "context": "Satisfactory" },
+        { "id": 11, "month": "November", "abbr": 11, "prediction": 92, "context": "Satisfactory" },
+        { "id": 12, "month": "December", "abbr": 12, "prediction": 94, "context": "Satisfactory" }
+    ]
+}

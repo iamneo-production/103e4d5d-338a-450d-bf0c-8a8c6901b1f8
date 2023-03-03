@@ -1,23 +1,23 @@
 {
-  "city": "",
-  "lat": 0,
-  "lon": 0,
-  "data": [
-    { "id": 1, "month": "January", "abbr": 1, "prediction": 0, "context": "" },
-    { "id": 2, "month": "February", "abbr": 2, "prediction": 0, "context": "" },
-    { "id": 3, "month": "March", "abbr": 3, "prediction": 0, "context": "" },
-    { "id": 4, "month": "April", "abbr": 4, "prediction": 0, "context": "" },
-    { "id": 5, "month": "May", "abbr": 5, "prediction": 0, "context": "" },
-    { "id": 6, "month": "June", "abbr": 6, "prediction": 0, "context": "" },
-    { "id": 7, "month": "July", "abbr": 7, "prediction": 0, "context": "" },
-    { "id": 8, "month": "August", "abbr": 8, "prediction": 0, "context": "" },
-    { "id": 9, "month": "September", "abbr": 9, "prediction": 0, "context": "" },
-    { "id": 10, "month": "October", "abbr": 10, "prediction": 0, "context": "" },
-    { "id": 11, "month": "November", "abbr": 11, "prediction": 0, "context": "" },
-    { "id": 12, "month": "December", "abbr": 12, "prediction": 0, "context": "" }
-  ],
-  "average": {
-    "prediction": 0,
-    "context": ""
-  }
+    "city": "",
+    "lat": 0,
+    "lon": 0,
+    "data": [
+        { "id": 1, "month": "January", "abbr": 1, "prediction": 0, "context": "" },
+        { "id": 2, "month": "February", "abbr": 2, "prediction": 0, "context": "" },
+        { "id": 3, "month": "March", "abbr": 3, "prediction": 0, "context": "" },
+        { "id": 4, "month": "April", "abbr": 4, "prediction": 0, "context": "" },
+        { "id": 5, "month": "May", "abbr": 5, "prediction": 0, "context": "" },
+        { "id": 6, "month": "June", "abbr": 6, "prediction": 0, "context": "" },
+        { "id": 7, "month": "July", "abbr": 7, "prediction": 0, "context": "" },
+        { "id": 8, "month": "August", "abbr": 8, "prediction": 0, "context": "" },
+        { "id": 9, "month": "September", "abbr": 9, "prediction": 0, "context": "" },
+        { "id": 10, "month": "October", "abbr": 10, "prediction": 0, "context": "" },
+        { "id": 11, "month": "November", "abbr": 11, "prediction": 0, "context": "" },
+        { "id": 12, "month": "December", "abbr": 12, "prediction": 0, "context": "" }
+    ],
+    "average": {
+        "prediction": 0,
+        "context": ""
+    }
 }
