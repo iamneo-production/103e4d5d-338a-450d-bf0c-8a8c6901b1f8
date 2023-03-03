@@ -17,8 +17,6 @@ const DataCard = ({ city, content, preview }: DataCardProps) => {
     return <></>
   }
 
-  console.log(preview)
-
   return (
     <div className="flex flex-col gap-6 md:flex-row">
       <span className="center">{cityData[city].iframe as React.ReactNode}</span>

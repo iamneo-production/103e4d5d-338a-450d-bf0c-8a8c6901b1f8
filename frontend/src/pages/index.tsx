@@ -11,10 +11,16 @@ interface HomePageProps
   extends InferGetServerSidePropsType<typeof getServerSideProps>,
     InferGetServerSidePropsType<typeof getServerSideProps> {}
 
-const HomePage: React.FC<HomePageProps> = ({ weather }) => {
+const HomePage: React.FC<HomePageProps> = ({ weatherData }) => {
+  const [weather, setWeather] = useState(weatherData)
   useEffect(() => {
     getGeoLocation((data) => {
-      console.log(data)
+      fetchWeather(`${data.coords.latitude},${data.coords.longitude}`)
+        .then((res) => {
+          console.log(res)
+          setWeather(res)
+        })
+        .catch((err) => console.log(err))
     })
   })
 
@@ -98,11 +104,9 @@ export const getServerSideProps: GetServerSideProps = async () => {
     },
   }
 
-  // const [weatherData] = await Promise.all([fetchWeather()])
-
   return {
     props: {
-      weather: weatherData,
+      weatherData: weatherData,
     },
   }
 }

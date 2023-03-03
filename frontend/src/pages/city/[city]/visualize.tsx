@@ -71,7 +71,6 @@ function getTooltip({ object }: any) {
   const lng = object.position[0]
   const count = object.points.length
 
-  console.log(lng)
   return `\
   Longitude: ${Math.min(Number(lng * -10 * 79 + Math.random()), 80.23)}
   Latitude: ${Number((lat / 50) * 18)}
@@ -95,7 +94,6 @@ const City = ({
     csv(DATA_URL, (error: any, response: any) => {
       if (!error) {
         const data = response.map((d: any) => [Number(d.lng), Number(d.lat)])
-        console.log(data)
         const layers = [
           new HexagonLayer({
             id: "heatmap",

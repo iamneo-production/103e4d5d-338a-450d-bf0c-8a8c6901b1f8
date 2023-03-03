@@ -46,7 +46,6 @@ const City = ({ className }: any) => {
         .get(`getAQI?q=${current}`)
         .then((res) => {
           setAqiData(res.data.data.distribution.data)
-          console.log(res.data.data)
           setComment(res.data.data.comment)
         })
         .catch((err) => {
