@@ -6,7 +6,7 @@ interface VisualizationProps extends React.HTMLAttributes<HTMLDivElement> {
     content: string
   }
   head?: string
-  footer?: string
+  footer?: React.ReactNode
   footerDecoration?: string
 }
 
@@ -15,7 +15,7 @@ const Visualization = ({
   head,
   footer,
   data,
-  footerDecoration = "text-green-400",
+  footerDecoration = "text-gray-400 underline",
   ...props
 }: VisualizationProps) => {
   return (

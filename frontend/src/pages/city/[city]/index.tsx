@@ -6,13 +6,13 @@ import DistributionCard from "../../../components/city/distribution"
 import Visualization from "../../../components/city/visualization"
 import axios from "../../../lib/axios"
 import { cityData } from "../../../utils/constants/cities"
+import Link from "next/link"
 
 const City = ({ className }: any) => {
   const router = useRouter()
   const { city } = router.query
 
   const [current, setCurrent] = useState<keyof typeof cityData | null>(null)
-  const [data, setData] = useState([])
   const [aqiResult, setAqiResult] = useState({
     value: 0,
     content: "",
@@ -26,8 +26,7 @@ const City = ({ className }: any) => {
       axios
         .get(`getAQI?q=${current}`)
         .then((res) => {
-          // setAqiData(res.data.data.distribution)
-          setData(res.data.data.distribution.data)
+          setAqiData(res.data.data.distribution.data)
         })
         .catch((err) => {
           console.warn(err)
@@ -36,9 +35,9 @@ const City = ({ className }: any) => {
   }, [current])
 
   useEffect(() => {
-    if (data.length <= 0) return
+    if (aqiData.length <= 0) return
 
-    const temp = data.filter((d: any) => {
+    const temp = aqiData.filter((d: any) => {
       return d.abbr === month
     })[0]
 
@@ -85,7 +84,7 @@ const City = ({ className }: any) => {
                   onChange={(e) => setMonth(parseInt(e.target.value))}
                   value={month}
                 >
-                  {data?.map((itr: any, index) => {
+                  {aqiData?.map((itr: any, index) => {
                     return (
                       <option key={itr.abbr} value={itr.abbr} className="capitalize text-black/50">
                         {itr.month}
@@ -101,8 +100,8 @@ const City = ({ className }: any) => {
                   value: aqiResult.value?.toFixed(2),
                   content: aqiResult.content,
                 }}
-                head="Yearly AQI"
-                footer=""
+                head="Monthly AQI"
+                footer={<Link href={"#aqi"}>View more...</Link>}
               />
               <Visualization
                 data={{
