@@ -69,7 +69,7 @@ function getTooltip({ object }: any) {
   }
   const lat = object.position[1]
   const lng = object.position[0]
-  const count = object.points.length
+  const count = object.points?.length
 
   return `\
   Longitude: ${Math.min(Number(lng * -10 * 79 + Math.random()), 80.23)}

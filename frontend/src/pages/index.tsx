@@ -20,7 +20,7 @@ const HomePage: React.FC<HomePageProps> = ({ weatherData }) => {
       fetchWeather(`${data.coords.latitude},${data.coords.longitude}`)
         .then((res) => {
           console.log(res)
-          setWeather(res)
+          if(res) setWeather(res)
         })
         .catch((err) => console.log(err))
     })

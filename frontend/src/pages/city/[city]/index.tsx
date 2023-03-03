@@ -57,7 +57,7 @@ const City = ({ className }: any) => {
   }, [current])
 
   useEffect(() => {
-    if (aqiData.length <= 0) return
+    if (aqiData?.length <= 0) return
 
     const temp = aqiData.filter((d: any) => {
       return d.abbr === month
