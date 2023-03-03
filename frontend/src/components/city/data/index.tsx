@@ -1,4 +1,5 @@
 import React from "react"
+import Image, { StaticImageData } from "next/image"
 import { useRouter } from "next/router"
 
 import { cityData } from "../../../utils/constants/cities"
@@ -6,14 +7,17 @@ import { cityData } from "../../../utils/constants/cities"
 interface DataCardProps extends React.HTMLAttributes<HTMLDivElement> {
   city: keyof typeof cityData
   content: string
+  preview: StaticImageData | null
 }
 
-const DataCard = ({ city, content }: DataCardProps) => {
+const DataCard = ({ city, content, preview }: DataCardProps) => {
   const { push } = useRouter()
 
   if (typeof city === "number") {
-    return
+    return <></>
   }
+
+  console.log(preview)
 
   return (
     <div className="flex flex-col gap-6 md:flex-row">
@@ -25,7 +29,12 @@ const DataCard = ({ city, content }: DataCardProps) => {
           </h1>
           <p className="text-base text-white/50" dangerouslySetInnerHTML={{ __html: content }}></p>
         </div>
-        <div className="text-right">
+        <div className="mt-2 flex flex-col justify-between md:flex-row md:items-end">
+          {preview && (
+            <div className="w-64">
+              <Image src={preview} alt={"city"} />
+            </div>
+          )}
           <button
             onClick={() => {
               push(`/city/${city}/visualize`)

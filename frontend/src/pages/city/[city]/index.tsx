@@ -1,7 +1,15 @@
 import React, { useEffect, useState } from "react"
+import { StaticImageData } from "next/image"
 import Link from "next/link"
 import { useRouter } from "next/router"
 
+/* Predictons */
+import Adilabad from "../../../assets/predictions/Adilabad.png"
+import Karimnagar from "../../../assets/predictions/Karimnagar.png"
+import Khamman from "../../../assets/predictions/Khamman.png"
+import Nizamabad from "../../../assets/predictions/Nizamabad.png"
+import Waarangal from "../../../assets/predictions/Warangal.png"
+/* Components */
 import DataCard from "../../../components/city/data"
 import DistributionCard from "../../../components/city/distribution"
 import Visualization from "../../../components/city/visualization"
@@ -20,6 +28,15 @@ const City = ({ className }: any) => {
     content: "",
   })
   const [aqiData, setAqiData] = useState([])
+  const [predictionPreview, setPredictionPreview] = useState<StaticImageData | null>(null)
+
+  const mapping: { [key: string]: StaticImageData } = {
+    adilabad: Adilabad,
+    karimnagar: Karimnagar,
+    khamman: Khamman,
+    nizamabad: Nizamabad,
+    warangal: Waarangal,
+  }
 
   const [month, setMonth] = useState(1)
 
@@ -35,6 +52,8 @@ const City = ({ className }: any) => {
         .catch((err) => {
           console.warn(err)
         })
+
+      setPredictionPreview(mapping[city as string])
     }
   }, [current])
 
@@ -52,7 +71,9 @@ const City = ({ className }: any) => {
   }, [month])
 
   useEffect(() => {
-    if (city) setCurrent(city as string)
+    if (!city) return
+
+    setCurrent(city as string)
   }, [city])
 
   return (
@@ -128,8 +149,11 @@ const City = ({ className }: any) => {
               </div>
             )}
             <div className="mb-6 grid w-full">
-              {/* @ts-ignore */}
-              <DataCard city={current as string} content={comment} />
+              <DataCard
+                city={current as string}
+                content={month ? comment : ""}
+                preview={predictionPreview}
+              />
             </div>
           </div>
         </>
