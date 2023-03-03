@@ -21,7 +21,9 @@ const Visualization = ({
   return (
     <div
       className={
-        "center flex-col justify-between gap-6 rounded border-t-4 border-t-blue-400 bg-[#21212e] px-4 py-2 text-white " +
+        "center flex-col justify-between gap-6 rounded border-t-4 bg-[#21212e] px-4 py-2 text-white " +
+        (data?.content === "Satisfactory" && " border-t-green-500") +
+        " " +
         className
       }
       {...props}
@@ -29,7 +31,9 @@ const Visualization = ({
       <span className="text-xs text-gray-500/75">{head}</span>
       <div className="center flex-col">
         <h1 className="font-poppins text-3xl">{data?.value}</h1>
-        <p className="text-base text-gray-400">{data?.content}</p>
+        <p className={"text-base " + (data?.content === "Satisfactory" && " text-green-500")}>
+          {data?.content}
+        </p>
       </div>
       <span className={"text-xs " + footerDecoration}>{footer}</span>
     </div>
