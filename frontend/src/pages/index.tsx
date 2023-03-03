@@ -9,7 +9,7 @@ import getGeoLocation from "../utils/functions/getGeoLocation"
 
 interface HomePageProps
   extends InferGetServerSidePropsType<typeof getServerSideProps>,
-  InferGetServerSidePropsType<typeof getServerSideProps> { }
+    InferGetServerSidePropsType<typeof getServerSideProps> {}
 
 const HomePage: React.FC<HomePageProps> = ({ weather }) => {
   useEffect(() => {

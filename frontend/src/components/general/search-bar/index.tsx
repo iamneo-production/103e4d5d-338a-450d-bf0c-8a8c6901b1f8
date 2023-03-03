@@ -38,7 +38,7 @@ const SearchBar = ({
     e.preventDefault()
     // adilabad
     if (cities.includes(search.toLowerCase())) {
-      router.push(`/city/${search}`)
+      router.push(`/city/${search.toLowerCase()}`)
     }
 
     setSearch("")
