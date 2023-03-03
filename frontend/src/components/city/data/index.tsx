@@ -5,20 +5,25 @@ import { cityData } from "../../../utils/constants/cities"
 
 interface DataCardProps extends React.HTMLAttributes<HTMLDivElement> {
   city: keyof typeof cityData
-  heading: string
   content: string
 }
 
-const DataCard = ({ city, heading, content }: DataCardProps) => {
+const DataCard = ({ city, content }: DataCardProps) => {
   const { push } = useRouter()
+
+  if (typeof city === "number") {
+    return
+  }
 
   return (
     <div className="flex flex-col gap-6 md:flex-row">
       <span className="center">{cityData[city].iframe as React.ReactNode}</span>
       <div className="flex grow flex-col justify-between">
         <div className="">
-          <h1 className="font-poppins text-3xl text-white">{heading}</h1>
-          <p className="text-base text-gray-300/50">{content}</p>
+          <h1 className="font-poppins text-3xl text-white">
+            {city.charAt(0).toUpperCase() + city.slice(1)}
+          </h1>
+          <p className="text-base text-white/50" dangerouslySetInnerHTML={{ __html: content }}></p>
         </div>
         <div className="text-right">
           <button

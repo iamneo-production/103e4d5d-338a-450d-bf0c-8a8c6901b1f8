@@ -38,9 +38,36 @@ const handler = (req: NextApiRequest, res: NextApiResponse<API>) => {
   }
 
   const data = dataMap[query]
+  const avg =
+    data.data.reduce(
+      (
+        acc: number,
+        current: { id: number; month: string; abbr: string; prediction: number; context: string }
+      ) => {
+        return current.prediction + acc
+      },
+      0
+    ) / data.data.length
 
-  /* Generate a comment based on averge */
-  const comment = "lorem ipsum"
+  let comment = ""
+  if (avg < 50) {
+    comment = "<strong style=color:green>Good</strong>: Minimal Impact"
+  } else if (50 < avg && avg < 100) {
+    comment =
+      "<strong style=color:lightgreen>Satisifactory</strong>: Minor breathing discomfort to sensitive people"
+  } else if (100 < avg && avg < 200) {
+    comment =
+      "<strong style=color:yellow>Moderate</strong>: Breathing discomfort to people with lungs, asthma and heart diseases"
+  } else if (200 < avg && avg < 300) {
+    comment =
+      "<strong style=color:lightyellow>Poor</strong>: Breathing discomfort to most people on prolonged exposure"
+  } else if (300 < avg && avg < 400) {
+    comment =
+      "<strong style=color:red>Very poor</strong>: Respiratory illeness to people on prolonged exposure"
+  } else {
+    comment =
+      "<strong style=color:darkred>Severe</strong>: Affects healthy people and seriously impact those with existing disease"
+  }
 
   return res.status(200).send({
     data: {

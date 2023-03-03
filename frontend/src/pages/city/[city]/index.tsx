@@ -29,6 +29,7 @@ const City = ({ className }: any) => {
         .get(`getAQI?q=${current}`)
         .then((res) => {
           setAqiData(res.data.data.distribution.data)
+          console.log(res.data.data)
           setComment(res.data.data.comment)
         })
         .catch((err) => {
@@ -104,7 +105,13 @@ const City = ({ className }: any) => {
                   content: aqiResult.content,
                 }}
                 head="Monthly AQI"
-                footer={<Link href={"#aqi"}>View more...</Link>}
+                footer={
+                  hash ? (
+                    <Link href={"#"}>View less...</Link>
+                  ) : (
+                    <Link href={"#aqi"}>View more...</Link>
+                  )
+                }
               />
               <Visualization
                 data={{
@@ -121,7 +128,8 @@ const City = ({ className }: any) => {
               </div>
             )}
             <div className="mb-6 grid w-full">
-              <DataCard city={current} heading={"Heading"} content={comment} />
+              {/* @ts-ignore */}
+              <DataCard city={current as string} content={comment} />
             </div>
           </div>
         </>
