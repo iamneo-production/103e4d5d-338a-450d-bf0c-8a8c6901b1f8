@@ -113,6 +113,17 @@ const City = ({ className }: any) => {
   }, [month])
 
   useEffect(() => {
+    if (month === 0) {
+      setAqiResult({
+        value: 0,
+        content: "",
+      })
+      setHeatWaveResult({ value: 0, content: "" })
+      router.push("#")
+    }
+  }, [month])
+
+  useEffect(() => {
     if (!city) return
 
     setCurrent(city as string)
@@ -191,12 +202,12 @@ const City = ({ className }: any) => {
                 }
               />
             </div>
-            {hash === "aqi" && (
+            {month !== 0 && hash === "aqi" && (
               <div className="my-4">
                 <DistributionCard data={aqiData} heading={"Monthly Average AQI Distribution"} />
               </div>
             )}
-            {hash === "heat-wave" && (
+            {month !== 0 && hash === "heat-wave" && (
               <div className="my-4">
                 <DailyDistributionCard
                   data={
