@@ -4,9 +4,39 @@ https://sonarcloud.io/summary/overall?id=examly-test_103e4d5d-338a-450d-bf0c-8a8
 
 # Team Akashwani
 
+# Frontend
+## Configuration
+1. First, make sure you have Node.js and npm (Node Package Manager) installed on your computer, You can check this by running the following commands in your terminal:
+
+```
+    node -v
+    npm -v
+```
+
+> Read docs here [Node.js Documentation](https://nodejs.org/en/docs/)
+
+## Installation
+
+1. Clone the project from GitHub
+
+```
+    git clone https://github.com/iamneo-production/103e4d5d-338a-450d-bf0c-8a8c6901b1f8
+```
+
+2. Once the project is cloned, navigate into the project directory and run the following command to install all the necessary dependencies:
+
+```
+    yarn install
+```
+
+3. Finally, to start the development server, run the following command in your terminal:
+
+```
+    npm dev
+```
+> This will start the development server and you should be able to see your project running at [`http://localhost:8081`](http://localhost:8081) in your browser.
 
 # AQI
-
 ## Data Source:
 We used the AQI data provided by Telangana State Pollution Control Board.
 
