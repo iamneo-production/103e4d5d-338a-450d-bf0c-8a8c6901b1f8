@@ -68,7 +68,6 @@ const City = ({ className }: any) => {
         .get(`getAQI?q=${current}`)
         .then((res) => {
           setAqiData(res.data.data.distribution.data)
-          setComment(res.data.data.comment)
         })
         .catch((err) => {
           console.warn(err)
@@ -84,22 +83,44 @@ const City = ({ className }: any) => {
           console.warn(err)
         })
 
-      setPredictionPreview(mapping[city as string])
+      setPredictionPreview(mapping[current])
     }
   }, [current])
 
   useEffect(() => {
     if (aqiData?.length <= 0) return
 
-    const temp = aqiData.filter((d: any) => {
+    const temp: { context: string; prediction: number } = aqiData.filter((d: any) => {
       return d.abbr === month
     })[0]
 
     if (!temp) return
 
-    // @ts-ignore
+    let _comment = ""
+    console.log(temp)
+    if (temp.context === "Good") {
+      _comment = "<strong style=color:green>Good</strong>: Minimal Impact"
+    } else if (temp.context === "Satisfactory") {
+      _comment =
+        "<strong style=color:lightgreen>Satisifactory</strong>: Minor breathing discomfort to sensitive people"
+    } else if (temp.context === "Moderate") {
+      _comment =
+        "<strong style=color:yellow>Moderate</strong>: Breathing discomfort to people with lungs, asthma and heart diseases"
+    } else if (temp.context === "Poor") {
+      _comment =
+        "<strong style=color:lightyellow>Poor</strong>: Breathing discomfort to most people on prolonged exposure"
+    } else if (temp.context === "Very poor") {
+      _comment =
+        "<strong style=color:red>Very poor</strong>: Respiratory illeness to people on prolonged exposure"
+    } else {
+      _comment =
+        "<strong style=color:darkred>Severe</strong>: Affects healthy people and seriously impact those with existing disease"
+    }
+
+    setComment(_comment)
+
     setAqiResult({ content: temp.context, value: temp.prediction })
-  }, [month])
+  }, [month, current])
 
   useEffect(() => {
     if (!heatWaveMonthly) return
@@ -110,7 +131,7 @@ const City = ({ className }: any) => {
       value: heatWaveMonthly[m],
       content: "",
     })
-  }, [month])
+  }, [month, current])
 
   useEffect(() => {
     if (month === 0) {

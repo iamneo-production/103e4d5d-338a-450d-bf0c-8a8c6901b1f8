@@ -21,6 +21,12 @@ const HomePage: React.FC<HomePageProps> = ({ weatherData }) => {
         .then((res) => {
           console.log(res)
           if (res) setWeather(res)
+          else
+            fetchWeather(`hyderabad`)
+              .then((res) => {
+                if (res) setWeather(res)
+              })
+              .catch((err) => console.log(err))
         })
         .catch((err) => console.log(err))
     })
