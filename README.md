@@ -6,6 +6,11 @@ https://sonarcloud.io/summary/overall?id=examly-test_103e4d5d-338a-450d-bf0c-8a8
 
 ## Website link : https://akashwani.vercel.app/
 
+## Demo Video
+> Note: Temperature is in °C.
+
+### Link: https://www.loom.com/share/a08041faf2ab46baa14cd608814117a5
+
 # Frontend
 ## Configuration
 1. First, make sure you have Node.js and npm (Node Package Manager) installed on your computer, You can check this by running the following commands in your terminal:
