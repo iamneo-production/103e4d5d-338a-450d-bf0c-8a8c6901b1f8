@@ -6,7 +6,6 @@ interface DistributionCardProps extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const DailyDistributionCard = ({ data, heading, className }: DistributionCardProps) => {
-  console.log(data?.predictions)
   return (
     <>
       <h1 className="mb-1 font-poppins text-2xl text-white">{heading}</h1>
@@ -19,10 +18,14 @@ const DailyDistributionCard = ({ data, heading, className }: DistributionCardPro
         {data?.predictions?.map((distribution, index) => {
           return (
             <div
-              className="center flex-col rounded border border-white/50 bg-[#21212e] px-4 py-2 text-center text-white "
+              className={
+                "center flex-col rounded border border-white/50 bg-[#21212e] px-4 py-2 text-center text-white "
+              }
               key={distribution}
             >
-              <h1>{distribution.toFixed(3)}</h1>
+              <h1 className={distribution >= 40 ? " text-[#FF0000]" : ""}>
+                {distribution.toFixed(3)}
+              </h1>
               <span className="text-white/50">{`${data.month.slice(0, 3)} ${index + 1}`}</span>
             </div>
           )

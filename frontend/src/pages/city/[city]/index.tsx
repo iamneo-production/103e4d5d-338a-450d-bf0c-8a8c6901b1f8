@@ -97,7 +97,6 @@ const City = ({ className }: any) => {
     if (!temp) return
 
     let _comment = ""
-    console.log(temp)
     if (temp.context === "Good") {
       _comment = "<strong style=color:green>Good</strong>: Minimal Impact"
     } else if (temp.context === "Satisfactory") {
@@ -211,14 +210,14 @@ const City = ({ className }: any) => {
               <Visualization
                 data={{
                   value: heatWaveResult.value?.toFixed(2).toString(),
-                  content: "",
+                  content: heatWaveResult.value >= 40 ? "Heat wave" : "",
                 }}
-                head="Monthly Heat wave"
+                head="Monthly Average temperature"
                 footer={
                   hash === "heat-wave" ? (
                     <Link href={"#"}>View less...</Link>
                   ) : (
-                    <Link href={"#heat-wave"}>View more...</Link>
+                    <Link href={"#heat-wave"}>View daily distribution...</Link>
                   )
                 }
               />
@@ -236,7 +235,7 @@ const City = ({ className }: any) => {
                       (item: { month: string }) => item.month === monthToAbbrMapping[month]
                     )[0]
                   }
-                  heading={"Daily Heat Wave Distribution " + monthToAbbrMapping[month]}
+                  heading={"Daily Temperature distribution " + monthToAbbrMapping[month]}
                 />
               </div>
             )}

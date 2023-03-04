@@ -28,6 +28,8 @@ const Visualization = ({
         " " +
         (data?.content === "Good" && " border-t-[#00B050]") +
         " " +
+        (data?.content === "Heat wave" && " border-t-[#FF0000]") +
+        " " +
         className
       }
       {...props}
@@ -42,7 +44,9 @@ const Visualization = ({
             " " +
             (data?.content === "Moderate" && " text-[#FFFF00]") +
             " " +
-            (data?.content === "Good" && " text-[#00B050]")
+            (data?.content === "Good" && " text-[#00B050]") +
+            " " +
+            (data?.content === "Heat wave" && " text-[#FF0000]")
           }
         >
           {data?.content}
