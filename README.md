@@ -37,14 +37,14 @@ https://sonarcloud.io/summary/overall?id=examly-test_103e4d5d-338a-450d-bf0c-8a8
 ```
 > This will start the development server and you should be able to see your project running at [`http://localhost:8081`](http://localhost:8081) in your browser.
 
-# AQI
+# AQI Prediction
 ## Data Source:
 We used the AQI data provided by Telangana State Pollution Control Board.
 
 #### Link : https://tspcb.cgg.gov.in/Pages/Envdata.aspx
 
 ## Data Preprocessing
-We compiled the data collected from the Telangana State Pollution Control Board, remove anomalities from it and filled missing data using interpolation.
+We compiled the data collected from the Telangana State Pollution Control Board, remove anomalities from it, filled missing data using interpolation and preprocessed it to convert it into time series data.
 
 #### Link of AQI Dataset file : [AQI Data.csv](https://github.com/iamneo-production/103e4d5d-338a-450d-bf0c-8a8c6901b1f8/blob/main/AQI/AQI%20Data.csv)
 
@@ -121,4 +121,83 @@ Model Used : Exponential Smoothening
 ## Results
 The AQI prediction from the month January 2023 to December 2023 obtained for each city were stored in a csv file.
 
-#### Link of AQI prediction.csv file : [Prediction of AQI for the year 2023](https://github.com/Ananya2003Gupta/103e4d5d-338a-450d-bf0c-8a8c6901b1f8/blob/main/AQI/Prediction%20of%20AQI%20for%20year%202023.csv)
+#### Link of AQI prediction.csv file : [Prediction of AQI for the year 2023](https://github.com/iamneo-production/103e4d5d-338a-450d-bf0c-8a8c6901b1f8/blob/main/AQI/Prediction%20of%20AQI%20for%20year%202023.csv)
+
+# Heatwave Prediction
+## Data Source:
+We used the Weather data provided by Open Data Telangana Weather Data
+
+#### Link : https://data.telangana.gov.in/dataset/telangana-weather-data
+
+## Data Preprocessing
+We compiled the data collected from the Open Data Telangana Weather Data, remove anomalities from it and preprocessed it to convert it into time series data.
+
+#### Link of Heatwave Dataset:
+1. [Adilabad](https://github.com/iamneo-production/103e4d5d-338a-450d-bf0c-8a8c6901b1f8/blob/main/HeatWave/HeatWave_prediction_citywise/Adilbad/Adilabad.csv)
+2. [Karimnagar](https://github.com/iamneo-production/103e4d5d-338a-450d-bf0c-8a8c6901b1f8/blob/main/HeatWave/HeatWave_prediction_citywise/Karimnagar/Karimnagar.csv)
+3. [Khammam](https://github.com/iamneo-production/103e4d5d-338a-450d-bf0c-8a8c6901b1f8/blob/main/HeatWave/HeatWave_prediction_citywise/Khammam/Khammam.csv)
+4. [Nizamabad](https://github.com/iamneo-production/103e4d5d-338a-450d-bf0c-8a8c6901b1f8/blob/main/HeatWave/HeatWave_prediction_citywise/Nizamabad/Nizamabad.csv)
+5. [Warangal](https://github.com/iamneo-production/103e4d5d-338a-450d-bf0c-8a8c6901b1f8/blob/main/HeatWave/HeatWave_prediction_citywise/Warangal/Warangal.csv)
+
+## Model Selection
+We employed various techniques to select the best model that gives the best temperature prediction.
+
+We analysed the models on 2 parameters namely mean absolute error (mae) and root mean square error (rmse).
+
+### Models Used during Model Selection:
+1. ARIMA
+2. Exponential Smoothening
+3. FFT (Fast Fourier Transform)
+4. LSTM
+5. Neural Prophet
+
+### Results of Model Selection
+*Neural Prophet* performed the best for all 5 cities.
+
+## Heatwave prediction
+#### 1. Adilabad
+Model Used: Neural Prophet 
+> MAE (Mean Absolute Error) : 1.610
+
+> RMSE (Root Mean Square Error): 2.090
+
+#### 2. Karimnagar
+Model Used : Neural Prophet
+> MAE (Mean Absolute Error) : 1.510
+
+> RMSE (Root Mean Square Error) : 1.970
+
+#### 3. Khammam
+Model Used : Neural Prophet
+> MAE (Mean Absolute Error) : 1.390
+
+> RMSE (Root Mean Square Error) : 1.870
+
+#### 4. Nizamabad
+Model Used : Neural Prophet 
+> MAE (Mean Absolute Error) : 1.510
+
+> RMSE (Root Mean Square Error) : 1.970
+
+#### 5. Warangal
+Model Used : Neural Prophet
+> MAE (Mean Absolute Error) : 1.860
+
+> RMSE (Root Mean Square Error) : 2.480
+
+#### Link of Heatwave Prediction Notebook:
+1. [Adilabad](https://github.com/iamneo-production/103e4d5d-338a-450d-bf0c-8a8c6901b1f8/blob/main/HeatWave/HeatWave_prediction_citywise/Adilbad/Heatwave_Adilabad.ipynb)
+2. [Karimnagar](https://github.com/iamneo-production/103e4d5d-338a-450d-bf0c-8a8c6901b1f8/blob/main/HeatWave/HeatWave_prediction_citywise/Karimnagar/HeatwaveKarimnagar.ipynb)
+3. [Khammam](https://github.com/iamneo-production/103e4d5d-338a-450d-bf0c-8a8c6901b1f8/blob/main/HeatWave/HeatWave_prediction_citywise/Khammam/Heatwave_Khammam.ipynb)
+4. [Nizamabad](https://github.com/iamneo-production/103e4d5d-338a-450d-bf0c-8a8c6901b1f8/blob/main/HeatWave/HeatWave_prediction_citywise/Nizamabad/HeatwaveNizamabad.ipynb)
+5. [Warangal](https://github.com/iamneo-production/103e4d5d-338a-450d-bf0c-8a8c6901b1f8/blob/main/HeatWave/HeatWave_prediction_citywise/Warangal/Heatwave_Warangal.ipynb)
+
+## Results
+The temperature prediction from the month January 2023 to December 2023 obtained for each city were stored in a csv file.
+
+#### Link of csv file:
+1. [Adilabad](https://github.com/iamneo-production/103e4d5d-338a-450d-bf0c-8a8c6901b1f8/blob/main/HeatWave/Heatwave_prediction_ouput/Adilabad2023.csv)
+2. [Karimnagar](https://github.com/iamneo-production/103e4d5d-338a-450d-bf0c-8a8c6901b1f8/blob/main/HeatWave/Heatwave_prediction_ouput/Karimnagar2023.csv)
+3. [Khammam](https://github.com/iamneo-production/103e4d5d-338a-450d-bf0c-8a8c6901b1f8/blob/main/HeatWave/Heatwave_prediction_ouput/Khammam2023.csv)
+4. [Nizamabad](https://github.com/iamneo-production/103e4d5d-338a-450d-bf0c-8a8c6901b1f8/blob/main/HeatWave/Heatwave_prediction_ouput/Nizamabad2023.csv)
+5. [Warangal](https://github.com/iamneo-production/103e4d5d-338a-450d-bf0c-8a8c6901b1f8/blob/main/HeatWave/Heatwave_prediction_ouput/Warangal2023.csv)
