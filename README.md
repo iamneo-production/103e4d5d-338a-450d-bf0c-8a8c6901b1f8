@@ -21,12 +21,13 @@ https://sonarcloud.io/summary/overall?id=examly-test_103e4d5d-338a-450d-bf0c-8a8
 
 ```
     git clone https://github.com/iamneo-production/103e4d5d-338a-450d-bf0c-8a8c6901b1f8
+    cd frontend/
 ```
 
 2. Once the project is cloned, navigate into the project directory and run the following command to install all the necessary dependencies:
 
 ```
-    yarn install
+    npm install
 ```
 
 3. Finally, to start the development server, run the following command in your terminal:
