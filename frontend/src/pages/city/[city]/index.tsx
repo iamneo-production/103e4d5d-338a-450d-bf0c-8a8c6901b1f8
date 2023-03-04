@@ -10,6 +10,7 @@ import Khamman from "../../../assets/predictions/Khamman.png"
 import Nizamabad from "../../../assets/predictions/Nizamabad.png"
 import Waarangal from "../../../assets/predictions/Warangal.png"
 /* Components */
+import DailyDistributionCard from "../../../components/city/daily-distribution"
 import DataCard from "../../../components/city/data"
 import DistributionCard from "../../../components/city/distribution"
 import Visualization from "../../../components/city/visualization"
@@ -27,8 +28,14 @@ const City = ({ className }: any) => {
     value: 0,
     content: "",
   })
+  const [heatWaveResult, setHeatWaveResult] = useState({
+    value: 0,
+    content: "",
+  })
   const [aqiData, setAqiData] = useState([])
+  const [heatWaveData, setHeatWaveData] = useState([])
   const [predictionPreview, setPredictionPreview] = useState<StaticImageData | null>(null)
+  const [heatWaveMonthly, setHeatWaveMonthly] = useState<{ [key: string]: number } | undefined>()
 
   const mapping: { [key: string]: StaticImageData } = {
     adilabad: Adilabad,
@@ -38,7 +45,22 @@ const City = ({ className }: any) => {
     warangal: Waarangal,
   }
 
-  const [month, setMonth] = useState(1)
+  const monthToAbbrMapping: { [key: number]: string } = {
+    1: "January",
+    2: "February",
+    3: "March",
+    4: "April",
+    5: "May",
+    6: "June",
+    7: "July",
+    8: "August",
+    9: "September",
+    10: "October",
+    11: "November",
+    12: "December",
+  }
+
+  const [month, setMonth] = useState(0)
 
   useEffect(() => {
     if (current) {
@@ -55,7 +77,8 @@ const City = ({ className }: any) => {
       axios
         .get(`get-heat-wave?q=${current}`)
         .then((res) => {
-          console.log(res)
+          setHeatWaveMonthly(res.data.data.average)
+          setHeatWaveData(res.data.data.distribution.data)
         })
         .catch((err) => {
           console.warn(err)
@@ -76,6 +99,17 @@ const City = ({ className }: any) => {
 
     // @ts-ignore
     setAqiResult({ content: temp.context, value: temp.prediction })
+  }, [month])
+
+  useEffect(() => {
+    if (!heatWaveMonthly) return
+
+    const m = monthToAbbrMapping[month]
+
+    setHeatWaveResult({
+      value: heatWaveMonthly[m],
+      content: "",
+    })
   }, [month])
 
   useEffect(() => {
@@ -116,7 +150,7 @@ const City = ({ className }: any) => {
                   className="shrink rounded bg-white/50 px-4 py-2 outline-none"
                   onChange={(e) => setMonth(parseInt(e.target.value))}
                 >
-                  <option>---Select Month---</option>
+                  <option value={0}>---Select Month---</option>
                   {aqiData?.map((itr: any, index) => {
                     return (
                       <option key={itr.abbr} value={itr.abbr} className="capitalize text-black/50">
@@ -135,7 +169,7 @@ const City = ({ className }: any) => {
                 }}
                 head="Monthly AQI"
                 footer={
-                  hash ? (
+                  hash === "aqi" ? (
                     <Link href={"#"}>View less...</Link>
                   ) : (
                     <Link href={"#aqi"}>View more...</Link>
@@ -144,16 +178,34 @@ const City = ({ className }: any) => {
               />
               <Visualization
                 data={{
-                  value: "",
+                  value: heatWaveResult.value?.toString(),
                   content: "",
                 }}
                 head="Monthly Heat wave"
-                footer=""
+                footer={
+                  hash === "heat-wave" ? (
+                    <Link href={"#"}>View less...</Link>
+                  ) : (
+                    <Link href={"#heat-wave"}>View more...</Link>
+                  )
+                }
               />
             </div>
             {hash === "aqi" && (
               <div className="my-4">
                 <DistributionCard data={aqiData} heading={"Monthly Average AQI Distribution"} />
+              </div>
+            )}
+            {hash === "heat-wave" && (
+              <div className="my-4">
+                <DailyDistributionCard
+                  data={
+                    heatWaveData.filter(
+                      (item: { month: string }) => item.month === monthToAbbrMapping[month]
+                    )[0]
+                  }
+                  heading={"Daily Heat Wave Distribution " + monthToAbbrMapping[month]}
+                />
               </div>
             )}
             <div className="mb-6 grid w-full">

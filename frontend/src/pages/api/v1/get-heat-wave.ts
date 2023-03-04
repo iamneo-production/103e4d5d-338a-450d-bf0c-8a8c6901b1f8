@@ -66,8 +66,6 @@ const handler = (req: NextApiRequest, res: NextApiResponse<API>) => {
     monthlyAverage[d.month] = average
   })
 
-  console.log(monthlyAverage)
-
   return res.status(200).send({
     data: {
       distribution: data,
