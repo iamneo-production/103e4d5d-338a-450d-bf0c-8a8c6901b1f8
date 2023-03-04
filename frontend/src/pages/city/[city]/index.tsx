@@ -52,6 +52,15 @@ const City = ({ className }: any) => {
           console.warn(err)
         })
 
+      axios
+        .get(`get-heat-wave?q=${current}`)
+        .then((res) => {
+          console.log(res)
+        })
+        .catch((err) => {
+          console.warn(err)
+        })
+
       setPredictionPreview(mapping[city as string])
     }
   }, [current])
