@@ -6,7 +6,7 @@ import { useRouter } from "next/router"
 /* Predictons */
 import Adilabad from "../../../assets/predictions/Adilabad.png"
 import Karimnagar from "../../../assets/predictions/Karimnagar.png"
-import Khamman from "../../../assets/predictions/Khamman.png"
+import Khammam from "../../../assets/predictions/Khammam.png"
 import Nizamabad from "../../../assets/predictions/Nizamabad.png"
 import Waarangal from "../../../assets/predictions/Warangal.png"
 /* Components */
@@ -40,7 +40,7 @@ const City = ({ className }: any) => {
   const mapping: { [key: string]: StaticImageData } = {
     adilabad: Adilabad,
     karimnagar: Karimnagar,
-    khamman: Khamman,
+    khammam: Khammam,
     nizamabad: Nizamabad,
     warangal: Waarangal,
   }

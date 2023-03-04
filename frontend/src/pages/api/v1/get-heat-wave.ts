@@ -2,7 +2,7 @@ import type { NextApiRequest, NextApiResponse } from "next"
 
 import Alidabad from "../../../data/hw-adilabad.json"
 import Karimnagar from "../../../data/hw-karimnagar.json"
-import Khamman from "../../../data/hw-khamman.json"
+import Khammam from "../../../data/hw-khammam.json"
 import Nizamabad from "../../../data/hw-nizamabad.json"
 import Warangal from "../../../data/hw-warangal.json"
 import cities, { cityData } from "../../../utils/constants/cities"
@@ -32,7 +32,7 @@ const handler = (req: NextApiRequest, res: NextApiResponse<API>) => {
   const dataMap: { [key: string]: any } = {
     adilabad: Alidabad,
     karimnagar: Karimnagar,
-    khamman: Khamman,
+    khammam: Khammam,
     nizamabad: Nizamabad,
     warangal: Warangal,
   }
