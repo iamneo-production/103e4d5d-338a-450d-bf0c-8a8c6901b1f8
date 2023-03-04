@@ -1,0 +1,19 @@
+{
+  "city": "Khamman",
+  "lat": 17.2473,
+  "lon": 80.1514,
+  "data": [
+    { "id": 1, "month": "January", "predictions": [] },
+    { "id": 2, "month": "February", "predictions": [] },
+    { "id": 3, "month": "March", "predictions": [] },
+    { "id": 4, "month": "April", "predictions": [] },
+    { "id": 5, "month": "May", "predictions": [] },
+    { "id": 6, "month": "June", "predictions": [] },
+    { "id": 7, "month": "July", "predictions": [] },
+    { "id": 8, "month": "August", "predictions": [] },
+    { "id": 9, "month": "September", "predictions": [] },
+    { "id": 10, "month": "October", "predictions": [] },
+    { "id": 11, "month": "November", "predictions": [] },
+    { "id": 12, "month": "December", "predictions": [] }
+  ]
+}
