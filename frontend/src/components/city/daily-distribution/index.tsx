@@ -22,7 +22,7 @@ const DailyDistributionCard = ({ data, heading, className }: DistributionCardPro
               className="center flex-col rounded border border-white/50 bg-[#21212e] px-4 py-2 text-center text-white "
               key={distribution}
             >
-              <h1>{distribution}</h1>
+              <h1>{distribution.toFixed(3)}</h1>
               <span className="text-white/50">{`${data.month.slice(0, 3)} ${index + 1}`}</span>
             </div>
           )

@@ -210,7 +210,7 @@ const City = ({ className }: any) => {
               />
               <Visualization
                 data={{
-                  value: heatWaveResult.value?.toString(),
+                  value: heatWaveResult.value?.toFixed(2).toString(),
                   content: "",
                 }}
                 head="Monthly Heat wave"
