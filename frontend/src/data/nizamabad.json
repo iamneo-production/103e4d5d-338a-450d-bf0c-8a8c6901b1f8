@@ -1,0 +1,19 @@
+{
+  "city": "Nizamabad",
+  "lat": 18.6725,
+  "lon": 78.0941,
+  "data": [
+    { "id": 1, "month": "January", "abbr": 1, "prediction": 59, "context": "Satisfactory" },
+    { "id": 2, "month": "February", "abbr": 2, "prediction": 60, "context": "Satisfactory" },
+    { "id": 3, "month": "March", "abbr": 3, "prediction": 62, "context": "Satisfactory" },
+    { "id": 4, "month": "April", "abbr": 4, "prediction": 59, "context": "Satisfactory" },
+    { "id": 5, "month": "May", "abbr": 5, "prediction": 54, "context": "Satisfactory" },
+    { "id": 6, "month": "June", "abbr": 6, "prediction": 52, "context": "Satisfactory" },
+    { "id": 7, "month": "July", "abbr": 7, "prediction": 55, "context": "Satisfactory" },
+    { "id": 8, "month": "August", "abbr": 8, "prediction": 55, "context": "Satisfactory" },
+    { "id": 9, "month": "September", "abbr": 9, "prediction": 54, "context": "Satisfactory" },
+    { "id": 10, "month": "October", "abbr": 10, "prediction": 58, "context": "Satisfactory" },
+    { "id": 11, "month": "November", "abbr": 11, "prediction": 58, "context": "Satisfactory" },
+    { "id": 12, "month": "December", "abbr": 12, "prediction": 61, "context": "Satisfactory" }
+  ]
+}
