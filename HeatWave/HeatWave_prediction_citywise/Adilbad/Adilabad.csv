@@ -1,4 +1,4 @@
-location,ds,min-temp,y
+District,date,min-temp,max-temp
 Adilabad,2020-11-12,18.875,32.695
 Adilabad,2020-05-14,26.935,38.375
 Adilabad,2022-12-31,17.895,35.045
