@@ -33,7 +33,7 @@ https://sonarcloud.io/summary/overall?id=examly-test_103e4d5d-338a-450d-bf0c-8a8
 3. Finally, to start the development server, run the following command in your terminal:
 
 ```
-    npm dev
+    npm run dev
 ```
 > This will start the development server and you should be able to see your project running at [`http://localhost:8081`](http://localhost:8081) in your browser.
 
